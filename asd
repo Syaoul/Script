@@ -1,14 +1,14 @@
 --// Destroy other instances
 for _,v in pairs(game.CoreGui:GetChildren()) do
-    if v.Name == "dark_UI" then
+    if v.Name == "Dark" then
         v:Destroy()
     end
 end
 
-local dark_UI = Instance.new("ScreenGui")
-dark_UI.Name = "dark_UI"
-dark_UI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-dark_UI.Parent = game.CoreGui
+local Dark = Instance.new("ScreenGui")
+Dark.Name = "Dark"
+Dark.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+Dark.Parent = game.CoreGui
 
 local Library = {}
 local TweenService = game:GetService("TweenService")
@@ -80,10 +80,10 @@ function Library:Create(table)
     shadow.Selectable = true
     shadow.Size = UDim2.fromOffset(529, 331)
     shadow.ZIndex = -1
-    shadow.Parent = dark_UI
+    shadow.Parent = Dark
 
     tabContainer.Parent = main
-    main.Parent = dark_UI
+    main.Parent = Dark
     main.AnchorPoint = Vector2.new(0.5,0.5)
     shadow.AnchorPoint = Vector2.new(0.5,0.5)
 
@@ -93,7 +93,7 @@ function Library:Create(table)
     local tabHandler = {}
 
     function tabHandler:Exit()
-        dark_UI:Destroy()
+        Dark:Destroy()
     end
 
     function tabHandler:Tab(name)
@@ -158,12 +158,12 @@ function Library:Create(table)
 
         --// Event
         main1.MouseButton1Click:Connect(function()
-            for _,v in pairs(game.CoreGui:FindFirstChild('dark_UI').main:GetChildren()) do
+            for _,v in pairs(game.CoreGui:FindFirstChild('Dark').main:GetChildren()) do
                 if v.Name == "container" then
                     v.Visible = false
                 end
             end
-            for _,v in pairs(game.CoreGui['dark_UI'].main.tabContainer:GetChildren()) do
+            for _,v in pairs(game.CoreGui['Dark'].main.tabContainer:GetChildren()) do
                 if v:IsA('TextButton') then
                     game:GetService('TweenService'):Create(v, TweenInfo.new(0.3), {TextTransparency = 0.5}):Play()
                 end
@@ -498,13 +498,14 @@ function Library:Create(table)
 
         return ElementHandler
     end
+
     --// Drag - not by me
     main.MouseEnter:Connect(function()
         local Input = main.InputBegan:connect(function(Key)
             if Key.UserInputType == Enum.UserInputType.MouseButton1 then
                 local ObjectPosition = Vector2.new(Mouse.X - main.AbsolutePosition.X, Mouse.Y - main.AbsolutePosition.Y)
                 while RunService.RenderStepped:wait() and UserInputService:IsMouseButtonPressed(Enum.UserInputType.MouseButton1) do
-                    local FrameX, FrameY = math.clamp(Mouse.X - ObjectPosition.X, 0, dark_UI.AbsoluteSize.X - main.AbsoluteSize.X), math.clamp(Mouse.Y - ObjectPosition.Y, 0, dark_UI.AbsoluteSize.Y - main.AbsoluteSize.Y)
+                    local FrameX, FrameY = math.clamp(Mouse.X - ObjectPosition.X, 0, Dark.AbsoluteSize.X - main.AbsoluteSize.X), math.clamp(Mouse.Y - ObjectPosition.Y, 0, Dark.AbsoluteSize.Y - main.AbsoluteSize.Y)
                     game:GetService('TweenService'):Create(main, TweenInfo.new(0.1), {Position = UDim2.fromOffset(FrameX + (main.Size.X.Offset * main.AnchorPoint.X), FrameY + (main.Size.Y.Offset * main.AnchorPoint.Y))}):Play()
                     game:GetService('TweenService'):Create(shadow, TweenInfo.new(0.1), {Position = UDim2.fromOffset(FrameX + (main.Size.X.Offset * main.AnchorPoint.X), FrameY + (main.Size.Y.Offset * main.AnchorPoint.Y))}):Play()
                 end
@@ -513,12 +514,12 @@ function Library:Create(table)
     end)
 
     --// Make the first tab visible
-    game.CoreGui['dark_UI'].main.tabContainer.ChildAdded:Connect(function()
-        game.CoreGui['dark_UI'].main:FindFirstChild('container').Visible = true
+    game.CoreGui['Dark'].main.tabContainer.ChildAdded:Connect(function()
+        game.CoreGui['Dark'].main:FindFirstChild('container').Visible = true
         pcall(function()
-            repeat wait() until game.CoreGui['dark_UI'].main:FindFirstChild('tabContainer'):FindFirstChildWhichIsA('TextButton')
+            repeat wait() until game.CoreGui['Dark'].main:FindFirstChild('tabContainer'):FindFirstChildWhichIsA('TextButton')
         end)
-        game:GetService('TweenService'):Create(game.CoreGui['dark_UI'].main:FindFirstChild('tabContainer'):FindFirstChildWhichIsA('TextButton'), TweenInfo.new(0.3), {TextTransparency = 0}):Play()
+        game:GetService('TweenService'):Create(game.CoreGui['Dark'].main:FindFirstChild('tabContainer'):FindFirstChildWhichIsA('TextButton'), TweenInfo.new(0.3), {TextTransparency = 0}):Play()
     end)
 
     spawn(function()
