@@ -20,6 +20,11 @@ local container_3 = Instance.new("Frame")
 local holder_3 = Instance.new("ScrollingFrame")
 local uIPadding1_3 = Instance.new("UIPadding")
 local uIListLayout1_3 = Instance.new("UIListLayout")
+local buttons = Instance.new("Frame")
+local UIListLayout = Instance.new("UIListLayout")
+local close = Instance.new("TextButton")
+local minimize = Instance.new("TextButton")
+local resize = Instance.new("TextButton")
  
 dark_UI.Name = "dark_UI"
 dark_UI.Parent = game.CoreGui
@@ -181,3 +186,44 @@ uIListLayout1_3.Name = "uIListLayout1"
 uIListLayout1_3.Parent = holder_3
 uIListLayout1_3.SortOrder = Enum.SortOrder.LayoutOrder
 uIListLayout1_3.Padding = UDim.new(0, 3)
+
+buttons.Name = "buttons"
+buttons.Parent = main
+buttons.BackgroundColor3 = Color3.new(1, 1, 1)
+buttons.BackgroundTransparency = 1
+buttons.Size = UDim2.new(0, 105, 0, 57)
+
+UIListLayout.Parent = buttons
+UIListLayout.FillDirection = Enum.FillDirection.Horizontal
+UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+UIListLayout.VerticalAlignment = Enum.VerticalAlignment.Center
+UIListLayout.Padding = UDim.new(0, 10)
+
+close.Name = "close"
+close.Parent = buttons
+close.BackgroundColor3 = Color3.new(0.996078, 0.368627, 0.337255)
+close.Size = UDim2.new(0, 16, 0, 16)
+close.AutoButtonColor = false
+close.Text = ""
+close.TextColor3 = Color3.new(1, 0.196078, 0.196078)
+close.TextSize = 14
+
+minimize.Name = "minimize"
+minimize.Parent = buttons
+minimize.BackgroundColor3 = Color3.new(1, 0.741176, 0.180392)
+minimize.Size = UDim2.new(0, 16, 0, 16)
+minimize.AutoButtonColor = false
+minimize.Text = ""
+minimize.TextColor3 = Color3.new(1, 0.196078, 0.196078)
+minimize.TextSize = 14
+
+resize.Name = "resize"
+resize.Parent = buttons
+resize.BackgroundColor3 = Color3.new(0.152941, 0.784314, 0.247059)
+resize.Position = UDim2.new(0.752380967, 0, 0.754385948, 0)
+resize.Size = UDim2.new(0, 16, 0, 16)
+resize.AutoButtonColor = false
+resize.Text = ""
+resize.TextColor3 = Color3.new(1, 0.196078, 0.196078)
+resize.TextSize = 14
