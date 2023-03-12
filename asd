@@ -19,77 +19,6 @@ local LocalPlayer = Players.LocalPlayer
 local Mouse = LocalPlayer:GetMouse()
 local HTTPService = game:GetService("HttpService")
 
-    -- macos style buttons
-
-
-    local buttons = Instance.new("Frame")
-    buttons.Name = "buttons"
-    buttons.Parent = main
-    buttons.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    buttons.BackgroundTransparency = 1
-    buttons.Size = UDim2.new(0, 105, 0, 57)
-
-    local ull_3 = Instance.new("UIListLayout")
-    ull_3.Parent = buttons
-    ull_3.FillDirection = Enum.FillDirection.Horizontal
-    ull_3.HorizontalAlignment = Enum.HorizontalAlignment.Center
-    ull_3.SortOrder = Enum.SortOrder.LayoutOrder
-    ull_3.VerticalAlignment = Enum.VerticalAlignment.Center
-    ull_3.Padding = UDim.new(0, 10)
-
-
-    local close = Instance.new("TextButton")
-    close.Name = "close"
-    close.Parent = buttons
-    close.BackgroundColor3 = Color3.fromRGB(254, 94, 86)
-    close.Size = UDim2.new(0, 16, 0, 16)
-    close.AutoButtonColor = false
-    close.Font = Enum.Font.SourceSans
-    close.Text = ""
-    close.TextColor3 = Color3.fromRGB(255, 50, 50)
-    close.TextSize = 14
-    close.MouseButton1Click:Connect(function()
-        scrgui:Destroy()
-    end)
-
-
-    local uc_18 = Instance.new("UICorner")
-    uc_18.CornerRadius = UDim.new(1, 0)
-    uc_18.Parent = close
-
-
-    local minimize = Instance.new("TextButton")
-    minimize.Name = "minimize"
-    minimize.Parent = buttons
-    minimize.BackgroundColor3 = Color3.fromRGB(255, 189, 46)
-    minimize.Size = UDim2.new(0, 16, 0, 16)
-    minimize.AutoButtonColor = false
-    minimize.Font = Enum.Font.SourceSans
-    minimize.Text = ""
-    minimize.TextColor3 = Color3.fromRGB(255, 50, 50)
-    minimize.TextSize = 14
-
-
-    local uc_19 = Instance.new("UICorner")
-    uc_19.CornerRadius = UDim.new(1, 0)
-    uc_19.Parent = minimize
-
-
-    local resize = Instance.new("TextButton")
-    resize.Name = "resize"
-    resize.Parent = buttons
-    resize.BackgroundColor3 = Color3.fromRGB(39, 200, 63)
-    resize.Size = UDim2.new(0, 16, 0, 16)
-    resize.AutoButtonColor = false
-    resize.Font = Enum.Font.SourceSans
-    resize.Text = ""
-    resize.TextColor3 = Color3.fromRGB(255, 50, 50)
-    resize.TextSize = 14
-
-    local uc_20 = Instance.new("UICorner")
-    uc_20.CornerRadius = UDim.new(1, 0)
-    uc_20.Parent = resize
-
 function Library:Create(table)
     local windowName = table.Name
 
@@ -181,6 +110,77 @@ function Library:Create(table)
         main1.BackgroundTransparency = 1
         main1.Size = UDim2.fromOffset(10, 24)
         main1.Parent = tabContainer
+
+    -- macos style buttons
+
+
+    local buttons = Instance.new("Frame")
+    buttons.Name = "buttons"
+    buttons.Parent = main
+    buttons.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    buttons.BackgroundTransparency = 1
+    buttons.Size = UDim2.new(0, 105, 0, 57)
+
+    local ull_3 = Instance.new("UIListLayout")
+    ull_3.Parent = buttons
+    ull_3.FillDirection = Enum.FillDirection.Horizontal
+    ull_3.HorizontalAlignment = Enum.HorizontalAlignment.Center
+    ull_3.SortOrder = Enum.SortOrder.LayoutOrder
+    ull_3.VerticalAlignment = Enum.VerticalAlignment.Center
+    ull_3.Padding = UDim.new(0, 10)
+
+
+    local close = Instance.new("TextButton")
+    close.Name = "close"
+    close.Parent = buttons
+    close.BackgroundColor3 = Color3.fromRGB(254, 94, 86)
+    close.Size = UDim2.new(0, 16, 0, 16)
+    close.AutoButtonColor = false
+    close.Font = Enum.Font.SourceSans
+    close.Text = ""
+    close.TextColor3 = Color3.fromRGB(255, 50, 50)
+    close.TextSize = 14
+    close.MouseButton1Click:Connect(function()
+        scrgui:Destroy()
+    end)
+
+
+    local uc_18 = Instance.new("UICorner")
+    uc_18.CornerRadius = UDim.new(1, 0)
+    uc_18.Parent = close
+
+
+    local minimize = Instance.new("TextButton")
+    minimize.Name = "minimize"
+    minimize.Parent = buttons
+    minimize.BackgroundColor3 = Color3.fromRGB(255, 189, 46)
+    minimize.Size = UDim2.new(0, 16, 0, 16)
+    minimize.AutoButtonColor = false
+    minimize.Font = Enum.Font.SourceSans
+    minimize.Text = ""
+    minimize.TextColor3 = Color3.fromRGB(255, 50, 50)
+    minimize.TextSize = 14
+
+
+    local uc_19 = Instance.new("UICorner")
+    uc_19.CornerRadius = UDim.new(1, 0)
+    uc_19.Parent = minimize
+
+
+    local resize = Instance.new("TextButton")
+    resize.Name = "resize"
+    resize.Parent = buttons
+    resize.BackgroundColor3 = Color3.fromRGB(39, 200, 63)
+    resize.Size = UDim2.new(0, 16, 0, 16)
+    resize.AutoButtonColor = false
+    resize.Font = Enum.Font.SourceSans
+    resize.Text = ""
+    resize.TextColor3 = Color3.fromRGB(255, 50, 50)
+    resize.TextSize = 14
+
+    local uc_20 = Instance.new("UICorner")
+    uc_20.CornerRadius = UDim.new(1, 0)
+    uc_20.Parent = resize
 
         --// Creating the container
         local container = Instance.new("Frame")
