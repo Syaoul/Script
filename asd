@@ -568,16 +568,19 @@ function Library:Create(table)
     uc_20.CornerRadius = UDim.new(1, 0)
     uc_20.Parent = resize
 
-    if visiblekey then
-        Enabled.MouseButton1Click:Connect(function()
-            window:ToggleVisible()
-        end)
-        game:GetService("UserInputService").InputBegan:Connect(function(input, gameProcessed)
-            if input.RightShift == visiblekey then
-                window:ToggleVisible()
+    local darkObject = game:GetService("CoreGui"):FindFirstChild("Dark")
+    local enabled = false
+    
+    game:GetService("UserInputService").InputBegan:Connect(function(input, gameProcessedEvent)
+        if gameProcessedEvent then return end
+        if input.KeyCode == Enum.KeyCode.RightShift then
+            enabled = not enabled
+            if darkObject then
+                darkObject.Enabled = enabled
             end
-        end)
-    end
+        end
+    end)
+    
 
     --// Drag - not by me
     main.MouseEnter:Connect(function()
