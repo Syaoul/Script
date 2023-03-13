@@ -559,7 +559,7 @@ function Library:Create(table)
 
     local resize = Instance.new("TextButton")
     resize.Name = "resize"
-    resize.Parent = buttons
+    resize.Parent = Button
     resize.BackgroundColor3 = Color3.fromRGB(39, 200, 63)
     resize.Size = UDim2.new(0, 16, 0, 16)
     resize.AutoButtonColor = false
