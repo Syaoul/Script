@@ -521,7 +521,7 @@ function Library:Create(table)
     local close = Instance.new("TextButton")
     close.Name = "close"
     close.Parent = buttons
-    close.BackgroundColor3 = Color3.fromRGB(254, 94, 86)
+    close.BackgroundColor3 = Color3.fromRGB(255, 95, 85)
     close.Size = UDim2.new(0, 16, 0, 16)
     close.AutoButtonColor = false
     close.Font = Enum.Font.SourceSans
@@ -541,16 +541,20 @@ function Library:Create(table)
     local Enabled = Instance.new("TextButton")
     Enabled.Name = "Enabled"
     Enabled.Parent = buttons
-    Enabled.BackgroundColor3 = Color3.fromRGB(255, 189, 46)
+    Enabled.BackgroundColor3 = Color3.fromRGB(255, 190, 45)
     Enabled.Size = UDim2.new(0, 16, 0, 16)
     Enabled.AutoButtonColor = false
     Enabled.Font = Enum.Font.SourceSans
     Enabled.Text = ""
     Enabled.TextColor3 = Color3.fromRGB(255, 50, 50)
     Enabled.TextSize = 14
+    local Enabled = script.Parent
+
     Enabled.MouseButton1Click:Connect(function()
-        game:GetService("CoreGui").Dark.Enabled = false
+        Enabled.Parent.Visible = false
     end)
+
+
 
     local uc_19 = Instance.new("UICorner")
     uc_19.CornerRadius = UDim.new(1, 0)
@@ -559,7 +563,7 @@ function Library:Create(table)
     local resize = Instance.new("TextButton")
     resize.Name = "resize"
     resize.Parent = buttons
-    resize.BackgroundColor3 = Color3.fromRGB(39, 200, 63)
+    resize.BackgroundColor3 = Color3.fromRGB(40, 200, 65)
     resize.Size = UDim2.new(0, 16, 0, 16)
     resize.AutoButtonColor = false
     resize.Font = Enum.Font.SourceSans
