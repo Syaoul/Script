@@ -548,10 +548,8 @@ function Library:Create(table)
     Enabled.Text = ""
     Enabled.TextColor3 = Color3.fromRGB(255, 50, 50)
     Enabled.TextSize = 14
-    local Enabled = script.Parent
-
     Enabled.MouseButton1Click:Connect(function()
-        Enabled.Parent.Visible = false
+        game:GetService("CoreGui").Dark.Visible = false
     end)
 
 
