@@ -499,18 +499,18 @@ function Library:Create(table)
         return ElementHandler
     end
 
-        -- macos style buttons
+        -- macos style Button
 
 
-    local buttons = Instance.new("Frame")
-    buttons.Name = "buttons"
-    buttons.Parent = main
-    buttons.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    buttons.BackgroundTransparency = 1
-    buttons.Size = UDim2.new(0, 105, 0, 57)
+    local Button = Instance.new("Frame")
+    Button.Name = "Button"
+    Button.Parent = main
+    Button.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    Button.BackgroundTransparency = 1
+    Button.Size = UDim2.new(0, 105, 0, 57)
 
     local ull_3 = Instance.new("UIListLayout")
-    ull_3.Parent = buttons
+    ull_3.Parent = Button
     ull_3.FillDirection = Enum.FillDirection.Horizontal
     ull_3.HorizontalAlignment = Enum.HorizontalAlignment.Center
     ull_3.SortOrder = Enum.SortOrder.LayoutOrder
@@ -520,7 +520,7 @@ function Library:Create(table)
 
     local close = Instance.new("TextButton")
     close.Name = "close"
-    close.Parent = buttons
+    close.Parent = Button
     close.BackgroundColor3 = Color3.fromRGB(254, 94, 86)
     close.Size = UDim2.new(0, 16, 0, 16)
     close.AutoButtonColor = false
@@ -540,7 +540,7 @@ function Library:Create(table)
 
     local Enabled = Instance.new("TextButton")
     Enabled.Name = "Enabled"
-    Enabled.Parent = buttons
+    Enabled.Parent = Button
     Enabled.BackgroundColor3 = Color3.fromRGB(255, 189, 46)
     Enabled.Size = UDim2.new(0, 16, 0, 16)
     Enabled.AutoButtonColor = false
