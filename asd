@@ -548,6 +548,12 @@ function Library:Create(table)
     Enabled.Text = ""
     Enabled.TextColor3 = Color3.fromRGB(255, 50, 50)
     Enabled.TextSize = 14
+    game:GetService("UserInputService").InputBegan:Connect(function(input, gameProcessedEvent)
+        if gameProcessedEvent then return end
+        if input.KeyCode == Enum.KeyCode.RightShift then
+            game:GetService("CoreGui").Dark.Enabled = true
+        end
+    end)    
 
     local uc_19 = Instance.new("UICorner")
     uc_19.CornerRadius = UDim.new(1, 0)
@@ -567,20 +573,6 @@ function Library:Create(table)
     local uc_20 = Instance.new("UICorner")
     uc_20.CornerRadius = UDim.new(1, 0)
     uc_20.Parent = resize
-
-    local darkObject = game:GetService("CoreGui"):FindFirstChild("Dark")
-    local enabled = false
-    
-    game:GetService("UserInputService").InputBegan:Connect(function(input, gameProcessedEvent)
-        if gameProcessedEvent then return end
-        if input.KeyCode == Enum.KeyCode.RightShift then
-            enabled = not enabled
-            if darkObject then
-                darkObject.Enabled = enabled
-            end
-        end
-    end)
-    
 
     --// Drag - not by me
     main.MouseEnter:Connect(function()
