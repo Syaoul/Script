@@ -551,13 +551,6 @@ function Library:Create(table)
     close.MouseButton1Click:Connect(function()
         game:GetService("CoreGui").Dark.Enabled = false
     end)
-    
-    game:GetService("UserInputService").InputBegan:Connect(function(input, gameProcessedEvent)
-        if gameProcessedEvent then return end
-        if input.KeyCode == Enum.KeyCode.RightShift then
-            game:GetService("CoreGui").Dark.Enabled = true
-        end
-    end)    
 
     local uc_19 = Instance.new("UICorner")
     uc_19.CornerRadius = UDim.new(1, 0)
