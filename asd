@@ -538,22 +538,24 @@ function Library:Create(table)
     uc_18.Parent = close
 
 
-    local minimize = Instance.new("TextButton")
-    minimize.Name = "minimize"
-    minimize.Parent = buttons
-    minimize.BackgroundColor3 = Color3.fromRGB(255, 189, 46)
-    minimize.Size = UDim2.new(0, 16, 0, 16)
-    minimize.AutoButtonColor = false
-    minimize.Font = Enum.Font.SourceSans
-    minimize.Text = ""
-    minimize.TextColor3 = Color3.fromRGB(255, 50, 50)
-    minimize.TextSize = 14
+    local Enabled = Instance.new("TextButton")
+    Enabled.Name = "Enabled"
+    Enabled.Parent = buttons
+    Enabled.BackgroundColor3 = Color3.fromRGB(255, 189, 46)
+    Enabled.Size = UDim2.new(0, 16, 0, 16)
+    Enabled.AutoButtonColor = false
+    Enabled.Font = Enum.Font.SourceSans
+    Enabled.Text = ""
+    Enabled.TextColor3 = Color3.fromRGB(255, 50, 50)
+    Enabled.TextSize = 14
+    Enabled.MouseButton1Click:Connect(function()
+        game:GetService("CoreGui").Dark.Enabled = false
+    end)
 
 
     local uc_19 = Instance.new("UICorner")
     uc_19.CornerRadius = UDim.new(1, 0)
-    uc_19.Parent = minimize
-
+    uc_19.Parent = Enabled
 
     local resize = Instance.new("TextButton")
     resize.Name = "resize"
