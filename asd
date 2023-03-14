@@ -548,9 +548,6 @@ function Library:Create(table)
         Enabled.Text = ""
         Enabled.TextColor3 = Color3.fromRGB(255, 50, 50)
         Enabled.TextSize = 14
-        Enabled.MouseButton1Click:Connect(function()
-            game:GetService("CoreGui").Syaoul.Enabled = false
-        end)
     
         local uc_19 = Instance.new("UICorner")
         uc_19.CornerRadius = UDim.new(1, 0)
