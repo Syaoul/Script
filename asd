@@ -95,79 +95,6 @@ function Library:Create(table)
     function tabHandler:Exit()
         Syaoul:Destroy()
     end
-
-    -- macos style buttons
-
-    local buttons = Instance.new("Frame")
-    buttons.Name = "buttons"
-    buttons.Parent = main
-    buttons.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    buttons.BackgroundTransparency = 1
-    buttons.Size = UDim2.new(0, 105, 0, 57)
-
-    local ull_3 = Instance.new("UIListLayout")
-    ull_3.Parent = buttons
-    ull_3.FillDirection = Enum.FillDirection.Horizontal
-    ull_3.HorizontalAlignment = Enum.HorizontalAlignment.Center
-    ull_3.SortOrder = Enum.SortOrder.LayoutOrder
-    ull_3.VerticalAlignment = Enum.VerticalAlignment.Center
-    ull_3.Padding = UDim.new(0, 10)
-
-
-    local Close = Instance.new("TextButton")
-    Close.Name = "Close"
-    Close.Parent = buttons
-    Close.BackgroundColor3 = Color3.fromRGB(254, 94, 86)
-    Close.Size = UDim2.new(0, 16, 0, 16)
-    Close.AutoButtonColor = false
-    Close.Font = Enum.Font.SourceSans
-    Close.Text = ""
-    Close.TextColor3 = Color3.fromRGB(255, 50, 50)
-    Close.TextSize = 14
-    Close.MouseButton1Click:Connect(function()
-        game:GetService("CoreGui").Syaoul:Destroy()
-    end)
-
-
-    local uc_18 = Instance.new("UICorner")
-    uc_18.CornerRadius = UDim.new(1, 0)
-    uc_18.Parent = Close
-
-
-    local Enabled = Instance.new("TextButton")
-    Enabled.Name = "Enabled"
-    Enabled.Parent = buttons
-    Enabled.BackgroundColor3 = Color3.fromRGB(255, 189, 46)
-    Enabled.Size = UDim2.new(0, 16, 0, 16)
-    Enabled.AutoButtonColor = false
-    Enabled.Font = Enum.Font.SourceSans
-    Enabled.Text = ""
-    Enabled.TextColor3 = Color3.fromRGB(255, 50, 50)
-    Enabled.TextSize = 14
-    Enabled.MouseButton1Click:Connect(function()
-        game:GetService("CoreGui").Syaoal.Enabled = false
-    end)
-
-
-    local uc_19 = Instance.new("UICorner")
-    uc_19.CornerRadius = UDim.new(1, 0)
-    uc_19.Parent = Enabled
-
-
-    local Mini = Instance.new("TextButton")
-    Mini.Name = "Mini"
-    Mini.Parent = buttons
-    Mini.BackgroundColor3 = Color3.fromRGB(39, 200, 63)
-    Mini.Size = UDim2.new(0, 16, 0, 16)
-    Mini.AutoButtonColor = false
-    Mini.Font = Enum.Font.SourceSans
-    Mini.Text = ""
-    Mini.TextColor3 = Color3.fromRGB(255, 50, 50)
-    Mini.TextSize = 14
-
-    local uc_20 = Instance.new("UICorner")
-    uc_20.CornerRadius = UDim.new(1, 0)
-    uc_20.Parent = Mini
     
     function tabHandler:Tab(name)
         --// Creating the yttab
@@ -244,6 +171,79 @@ function Library:Create(table)
             Container.Visible = true
             game:GetService('TweenService'):Create(Main1, TweenInfo.new(0.3), {TextTransparency = 0}):Play()
         end)
+
+            -- macos style buttons
+
+    local buttons = Instance.new("Frame")
+    buttons.Name = "buttons"
+    buttons.Parent = main
+    buttons.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    buttons.BackgroundTransparency = 1
+    buttons.Size = UDim2.new(0, 105, 0, 57)
+
+    local ull_3 = Instance.new("UIListLayout")
+    ull_3.Parent = buttons
+    ull_3.FillDirection = Enum.FillDirection.Horizontal
+    ull_3.HorizontalAlignment = Enum.HorizontalAlignment.Center
+    ull_3.SortOrder = Enum.SortOrder.LayoutOrder
+    ull_3.VerticalAlignment = Enum.VerticalAlignment.Center
+    ull_3.Padding = UDim.new(0, 10)
+
+
+    local Close = Instance.new("TextButton")
+    Close.Name = "Close"
+    Close.Parent = buttons
+    Close.BackgroundColor3 = Color3.fromRGB(254, 94, 86)
+    Close.Size = UDim2.new(0, 16, 0, 16)
+    Close.AutoButtonColor = false
+    Close.Font = Enum.Font.SourceSans
+    Close.Text = ""
+    Close.TextColor3 = Color3.fromRGB(255, 50, 50)
+    Close.TextSize = 14
+    Close.MouseButton1Click:Connect(function()
+        game:GetService("CoreGui").Syaoul:Destroy()
+    end)
+
+
+    local uc_18 = Instance.new("UICorner")
+    uc_18.CornerRadius = UDim.new(1, 0)
+    uc_18.Parent = Close
+
+
+    local Enabled = Instance.new("TextButton")
+    Enabled.Name = "Enabled"
+    Enabled.Parent = buttons
+    Enabled.BackgroundColor3 = Color3.fromRGB(255, 189, 46)
+    Enabled.Size = UDim2.new(0, 16, 0, 16)
+    Enabled.AutoButtonColor = false
+    Enabled.Font = Enum.Font.SourceSans
+    Enabled.Text = ""
+    Enabled.TextColor3 = Color3.fromRGB(255, 50, 50)
+    Enabled.TextSize = 14
+    Enabled.MouseButton1Click:Connect(function()
+        game:GetService("CoreGui").Syaoal.Enabled = false
+    end)
+
+
+    local uc_19 = Instance.new("UICorner")
+    uc_19.CornerRadius = UDim.new(1, 0)
+    uc_19.Parent = Enabled
+
+
+    local Mini = Instance.new("TextButton")
+    Mini.Name = "Mini"
+    Mini.Parent = buttons
+    Mini.BackgroundColor3 = Color3.fromRGB(39, 200, 63)
+    Mini.Size = UDim2.new(0, 16, 0, 16)
+    Mini.AutoButtonColor = false
+    Mini.Font = Enum.Font.SourceSans
+    Mini.Text = ""
+    Mini.TextColor3 = Color3.fromRGB(255, 50, 50)
+    Mini.TextSize = 14
+
+    local uc_20 = Instance.new("UICorner")
+    uc_20.CornerRadius = UDim.new(1, 0)
+    uc_20.Parent = Mini
 
         --// Elements
         local ElementHandler = {}
