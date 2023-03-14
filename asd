@@ -1,3 +1,12 @@
+local Library = {}
+local TweenService = game:GetService("TweenService")
+local RunService = game:GetService("RunService")
+local UserInputService = game:GetService("UserInputService")
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local Mouse = LocalPlayer:GetMouse()
+local HTTPService = game:GetService("HttpService")
+
 --// Destroy other instances
 for _,v in pairs(game.CoreGui:GetChildren()) do
     if v.Name == "Syaoul" then
@@ -10,85 +19,76 @@ Syaoul.Name = "Syaoul"
 Syaoul.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 Syaoul.Parent = game.CoreGui
 
-local Library = {}
-local TweenService = game:GetService("TweenService")
-local RunService = game:GetService("RunService")
-local UserInputService = game:GetService("UserInputService")
-local Players = game:GetService("Players")
-local LocalPlayer = Players.LocalPlayer
-local Mouse = LocalPlayer:GetMouse()
-local HTTPService = game:GetService("HttpService")
-
 function Library:Create(table)
-    local windowName = table.Name
+    local WindowName = table.Name
 
-    local main = Instance.new("Frame")
-    main.Name = "main"
-    main.BackgroundColor3 = Color3.fromRGB(28, 28, 28)
-    main.Position = UDim2.fromScale(0.244, 0.292)
-    main.Size = UDim2.fromOffset(488, 299)
+    local Main = Instance.new("Frame")
+    Main.Name = "Main"
+    Main.BackgroundColor3 = Color3.fromRGB(28, 28, 28)
+    Main.Position = UDim2.fromScale(0.244, 0.292)
+    Main.Size = UDim2.fromOffset(488, 299)
 
-    local title = Instance.new("TextLabel")
-    title.Name = "title"
-    title.Font = Enum.Font.Gotham
-    title.Text = windowName
-    title.TextColor3 = Color3.fromRGB(168, 168, 168)
-    title.TextSize = 20
-    title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    title.BackgroundTransparency = 1
-    title.Position = UDim2.fromScale(0.41, 0.0543)
-    title.Size = UDim2.fromOffset(83, 28)
-    title.Parent = main
+    local Title = Instance.new("TextLabel")
+    Title.Name = "Title"
+    Title.Font = Enum.Font.Gotham
+    Title.Text = WindowName
+    Title.TextColor3 = Color3.fromRGB(168, 168, 168)
+    Title.TextSize = 20
+    Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    Title.BackgroundTransparency = 1
+    Title.Position = UDim2.fromScale(0.41, 0.0543)
+    Title.Size = UDim2.fromOffset(83, 28)
+    Title.Parent = Main
 
     local uICorner = Instance.new("UICorner")
     uICorner.Name = "uICorner"
-    uICorner.Parent = main
+    uICorner.Parent = Main
 
-    local tabContainer = Instance.new("Frame")
-    tabContainer.Name = "tabContainer"
-    tabContainer.BackgroundColor3 = Color3.fromRGB(33, 33, 33)
-    tabContainer.Position = UDim2.fromScale(0.0342, 0.188)
-    tabContainer.Size = UDim2.fromOffset(454, 30)
+    local TabContainer = Instance.new("Frame")
+    TabContainer.Name = "TabContainer"
+    TabContainer.BackgroundColor3 = Color3.fromRGB(33, 33, 33)
+    TabContainer.Position = UDim2.fromScale(0.0342, 0.188)
+    TabContainer.Size = UDim2.fromOffset(454, 30)
 
     local uICorner1 = Instance.new("UICorner")
     uICorner1.Name = "uICorner1"
     uICorner1.CornerRadius = UDim.new(0, 6)
-    uICorner1.Parent = tabContainer
+    uICorner1.Parent = TabContainer
 
     local uIListLayout = Instance.new("UIListLayout")
     uIListLayout.Name = "uIListLayout"
     uIListLayout.Padding = UDim.new(0, 8)
     uIListLayout.FillDirection = Enum.FillDirection.Horizontal
     uIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
-    uIListLayout.Parent = tabContainer
+    uIListLayout.Parent = TabContainer
 
     local uIPadding = Instance.new("UIPadding")
     uIPadding.Name = "uIPadding"
     uIPadding.PaddingLeft = UDim.new(0, 7)
     uIPadding.PaddingTop = UDim.new(0, 4)
-    uIPadding.Parent = tabContainer
+    uIPadding.Parent = TabContainer
 
-    local shadow = Instance.new("ImageLabel")
-    shadow.Name = "shadow"
-    shadow.Image = "rbxassetid://297774371"
-    shadow.ImageColor3 = Color3.fromRGB(15, 15, 15)
-    shadow.ImageTransparency = 0.3
-    shadow.SliceCenter = Rect.new(20, 20, 280, 280)
-    shadow.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    shadow.BackgroundTransparency = 1
-    shadow.Position = UDim2.fromScale(0.224, 0.272)
-    shadow.Selectable = true
-    shadow.Size = UDim2.fromOffset(529, 331)
-    shadow.ZIndex = -1
-    shadow.Parent = Syaoul
+    local Shadow = Instance.new("ImageLabel")
+    Shadow.Name = "Shadow"
+    Shadow.Image = "rbxassetid://297774371"
+    Shadow.ImageColor3 = Color3.fromRGB(15, 15, 15)
+    Shadow.ImageTransparency = 0.3
+    Shadow.SliceCenter = Rect.new(20, 20, 280, 280)
+    Shadow.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    Shadow.BackgroundTransparency = 1
+    Shadow.Position = UDim2.fromScale(0.224, 0.272)
+    Shadow.Selectable = true
+    Shadow.Size = UDim2.fromOffset(529, 331)
+    Shadow.ZIndex = -1
+    Shadow.Parent = Syaoul
 
-    tabContainer.Parent = main
-    main.Parent = Syaoul
-    main.AnchorPoint = Vector2.new(0.5,0.5)
-    shadow.AnchorPoint = Vector2.new(0.5,0.5)
+    TabContainer.Parent = Main
+    Main.Parent = Syaoul
+    Main.AnchorPoint = Vector2.new(0.5,0.5)
+    Shadow.AnchorPoint = Vector2.new(0.5,0.5)
 
-    main.Position = UDim2.new(0.5,0,0.5,0)
-    shadow.Position = UDim2.new(0.5,0,0.5,0)
+    Main.Position = UDim2.new(0.5,0,0.5,0)
+    Shadow.Position = UDim2.new(0.5,0,0.5,0)
 
     local tabHandler = {}
 
@@ -96,80 +96,153 @@ function Library:Create(table)
         Syaoul:Destroy()
     end
 
+    -- macos style buttons
+
+    local buttons = Instance.new("Frame")
+    buttons.Name = "buttons"
+    buttons.Parent = main
+    buttons.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    buttons.BackgroundTransparency = 1
+    buttons.Size = UDim2.new(0, 105, 0, 57)
+
+    local ull_3 = Instance.new("UIListLayout")
+    ull_3.Parent = buttons
+    ull_3.FillDirection = Enum.FillDirection.Horizontal
+    ull_3.HorizontalAlignment = Enum.HorizontalAlignment.Center
+    ull_3.SortOrder = Enum.SortOrder.LayoutOrder
+    ull_3.VerticalAlignment = Enum.VerticalAlignment.Center
+    ull_3.Padding = UDim.new(0, 10)
+
+
+    local Close = Instance.new("TextButton")
+    Close.Name = "Close"
+    Close.Parent = buttons
+    Close.BackgroundColor3 = Color3.fromRGB(254, 94, 86)
+    Close.Size = UDim2.new(0, 16, 0, 16)
+    Close.AutoButtonColor = false
+    Close.Font = Enum.Font.SourceSans
+    Close.Text = ""
+    Close.TextColor3 = Color3.fromRGB(255, 50, 50)
+    Close.TextSize = 14
+    Close.MouseButton1Click:Connect(function()
+        game:GetService("CoreGui").Syaoul:Destroy()
+    end)
+
+
+    local uc_18 = Instance.new("UICorner")
+    uc_18.CornerRadius = UDim.new(1, 0)
+    uc_18.Parent = Close
+
+
+    local Enabled = Instance.new("TextButton")
+    Enabled.Name = "Enabled"
+    Enabled.Parent = buttons
+    Enabled.BackgroundColor3 = Color3.fromRGB(255, 189, 46)
+    Enabled.Size = UDim2.new(0, 16, 0, 16)
+    Enabled.AutoButtonColor = false
+    Enabled.Font = Enum.Font.SourceSans
+    Enabled.Text = ""
+    Enabled.TextColor3 = Color3.fromRGB(255, 50, 50)
+    Enabled.TextSize = 14
+    Enabled.MouseButton1Click:Connect(function()
+        game:GetService("CoreGui").Syaoal.Enabled = false
+    end)
+
+
+    local uc_19 = Instance.new("UICorner")
+    uc_19.CornerRadius = UDim.new(1, 0)
+    uc_19.Parent = Enabled
+
+
+    local Mini = Instance.new("TextButton")
+    Mini.Name = "Mini"
+    Mini.Parent = buttons
+    Mini.BackgroundColor3 = Color3.fromRGB(39, 200, 63)
+    Mini.Size = UDim2.new(0, 16, 0, 16)
+    Mini.AutoButtonColor = false
+    Mini.Font = Enum.Font.SourceSans
+    Mini.Text = ""
+    Mini.TextColor3 = Color3.fromRGB(255, 50, 50)
+    Mini.TextSize = 14
+
+    local uc_20 = Instance.new("UICorner")
+    uc_20.CornerRadius = UDim.new(1, 0)
+    uc_20.Parent = Mini
+    
     function tabHandler:Tab(name)
         --// Creating the yttab
-        local main1 = Instance.new("TextButton")
-        main1.Name = name
-        main1.Font = Enum.Font.Gotham
-        main1.Text = name
-        main1.TextColor3 = Color3.fromRGB(195, 195, 195)
-        main1.TextSize = 13
-        main1.TextTransparency = 0.5
-        main1.AutomaticSize = Enum.AutomaticSize.X
-        main1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-        main1.BackgroundTransparency = 1
-        main1.Size = UDim2.fromOffset(10, 24)
-        main1.Parent = tabContainer
+        local Main1 = Instance.new("TextButton")
+        Main1.Name = name
+        Main1.Font = Enum.Font.Gotham
+        Main1.Text = name
+        Main1.TextColor3 = Color3.fromRGB(195, 195, 195)
+        Main1.TextSize = 13
+        Main1.TextTransparency = 0.5
+        Main1.AutomaticSize = Enum.AutomaticSize.X
+        Main1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        Main1.BackgroundTransparency = 1
+        Main1.Size = UDim2.fromOffset(10, 24)
+        Main1.Parent = TabContainer
 
-        --// Creating the container
-        local container = Instance.new("Frame")
-        container.Name = "container"
-        container.BackgroundColor3 = Color3.fromRGB(33, 33, 33)
-        container.Position = UDim2.fromScale(0.0342, 0.31)
-        container.Size = UDim2.fromOffset(454, 183)
+        --// Creating the Container
+        local Container = Instance.new("Frame")
+        Container.Name = "Container"
+        Container.BackgroundColor3 = Color3.fromRGB(33, 33, 33)
+        Container.Position = UDim2.fromScale(0.0342, 0.31)
+        Container.Size = UDim2.fromOffset(454, 183)
         
         local uICorner2 = Instance.new("UICorner")
         uICorner2.Name = "uICorner2"
         uICorner2.CornerRadius = UDim.new(0, 6)
-        uICorner2.Parent = container
+        uICorner2.Parent = Container
         
-        local holder = Instance.new("ScrollingFrame")
-        holder.Name = "holder"
-        holder.ScrollBarImageColor3 = Color3.fromRGB(76, 76, 76)
-        holder.ScrollBarThickness = 2
-        holder.ScrollingDirection = Enum.ScrollingDirection.Y
-        holder.Active = true
-        holder.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-        holder.BackgroundTransparency = 1
-        holder.BorderColor3 = Color3.fromRGB(33, 33, 33)
-        holder.Position = UDim2.fromScale(0.0022, 0.00404)
-        holder.Size = UDim2.fromOffset(452, 182)
+        local Holder = Instance.new("ScrollingFrame")
+        Holder.Name = "Holder"
+        Holder.ScrollBarImageColor3 = Color3.fromRGB(76, 76, 76)
+        Holder.ScrollBarThickness = 2
+        Holder.ScrollingDirection = Enum.ScrollingDirection.Y
+        Holder.Active = true
+        Holder.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        Holder.BackgroundTransparency = 1
+        Holder.BorderColor3 = Color3.fromRGB(33, 33, 33)
+        Holder.Position = UDim2.fromScale(0.0022, 0.00404)
+        Holder.Size = UDim2.fromOffset(452, 182)
 
         local uIPadding1 = Instance.new("UIPadding")
         uIPadding1.Name = "uIPadding1"
         uIPadding1.PaddingLeft = UDim.new(0, 5)
         uIPadding1.PaddingTop = UDim.new(0, 7)
-        uIPadding1.Parent = holder
+        uIPadding1.Parent = Holder
 
         local uIListLayout1 = Instance.new("UIListLayout")
         uIListLayout1.Name = "uIListLayout1"
         uIListLayout1.Padding = UDim.new(0, 3)
         uIListLayout1.SortOrder = Enum.SortOrder.LayoutOrder
-        uIListLayout1.Parent = holder
+        uIListLayout1.Parent = Holder
 
         local uICorner11 = Instance.new("UICorner")
         uICorner11.Name = "uICorner11"
         uICorner11.CornerRadius = UDim.new(0, 6)
-        uICorner11.Parent = holder
+        uICorner11.Parent = Holder
 
-        holder.Parent = container
-        container.Parent = main
-        container.Visible = false
+        Holder.Parent = Container
+        Container.Parent = Main
+        Container.Visible = false
 
         --// Event
-        main1.MouseButton1Click:Connect(function()
-            for _,v in pairs(game.CoreGui:FindFirstChild('Syaoul').main:GetChildren()) do
-                if v.Name == "container" then
+        Main1.MouseButton1Click:Connect(function()
+            for _,v in pairs(game.CoreGui:FindFirstChild('Syaoul').Main:GetChildren()) do
+                if v.Name == "Container" then
                     v.Visible = false
                 end
             end
-            for _,v in pairs(game.CoreGui['Syaoul'].main.tabContainer:GetChildren()) do
+            for _,v in pairs(game.CoreGui['Syaoul'].Main.TabContainer:GetChildren()) do
                 if v:IsA('TextButton') then
                     game:GetService('TweenService'):Create(v, TweenInfo.new(0.3), {TextTransparency = 0.5}):Play()
                 end
             end
-            container.Visible = true
-            game:GetService('TweenService'):Create(main1, TweenInfo.new(0.3), {TextTransparency = 0}):Play()
+            Container.Visible = true
+            game:GetService('TweenService'):Create(Main1, TweenInfo.new(0.3), {TextTransparency = 0}):Play()
         end)
 
         --// Elements
@@ -179,7 +252,7 @@ function Library:Create(table)
             label.Name = "label"
             label.BackgroundColor3 = Color3.fromRGB(38, 38, 38)
             label.Size = UDim2.fromOffset(441, 32)
-            label.Parent = holder
+            label.Parent = Holder
     
             local uICorner3 = Instance.new("UICorner")
             uICorner3.Name = "uICorner3"
@@ -242,7 +315,7 @@ function Library:Create(table)
             imageLabel.Size = UDim2.fromOffset(18, 18)
             imageLabel.Parent = button
 
-            button.Parent = holder
+            button.Parent = Holder
 
             button.MouseEnter:Connect(function()
                 game:GetService('TweenService'):Create(button, TweenInfo.new(0.3), {BackgroundColor3 = Color3.fromRGB(43,43,43)}):Play()
@@ -326,7 +399,7 @@ function Library:Create(table)
             textLabel2.Size = UDim2.fromOffset(44, 32)
             textLabel2.Parent = slider
 
-            slider.Parent = holder
+            slider.Parent = Holder
             textLabel2.Text = tostring(default)
 
             local hovered = false
@@ -412,7 +485,7 @@ function Library:Create(table)
 
             frame3.Parent = toggle1
 
-            toggle1.Parent = holder
+            toggle1.Parent = Holder
 
             local tog = false
 
@@ -481,7 +554,7 @@ function Library:Create(table)
             uICorner14.Parent = textBox
 
             textBox.Parent = textbox
-            textbox.Parent = holder
+            textbox.Parent = Holder
 
             textbox.MouseEnter:Connect(function()
                 game:GetService('TweenService'):Create(textbox, TweenInfo.new(0.3), {BackgroundColor3 = Color3.fromRGB(43,43,43)}):Play()
@@ -498,101 +571,27 @@ function Library:Create(table)
 
         return ElementHandler
     end
-
-        --// macos style Button
-
-
-        local Button = Instance.new("Frame")
-        Button.Name = "Button"
-        Button.Parent = main
-        Button.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-        Button.BackgroundTransparency = 1
-        Button.Size = UDim2.new(0, 105, 0, 57)
-    
-        local ull_3 = Instance.new("UIListLayout")
-        ull_3.Parent = Button
-        ull_3.FillDirection = Enum.FillDirection.Horizontal
-        ull_3.HorizontalAlignment = Enum.HorizontalAlignment.Center
-        ull_3.SortOrder = Enum.SortOrder.LayoutOrder
-        ull_3.VerticalAlignment = Enum.VerticalAlignment.Center
-        ull_3.Padding = UDim.new(0, 10)
-    
-    
-        local Close = Instance.new("TextButton")
-        Close.Name = "Close"
-        Close.Parent = Button
-        Close.BackgroundColor3 = Color3.fromRGB(254, 94, 86)
-        Close.Size = UDim2.new(0, 16, 0, 16)
-        Close.AutoButtonColor = false
-        Close.Font = Enum.Font.SourceSans
-        Close.Text = ""
-        Close.TextColor3 = Color3.fromRGB(255, 50, 50)
-        Close.TextSize = 14
-        Close.MouseButton1Click:Connect(function()
-            game:GetService("CoreGui").Syaoul:Destroy()
-        end)
-    
-    
-        local uc_18 = Instance.new("UICorner")
-        uc_18.CornerRadius = UDim.new(1, 0)
-        uc_18.Parent = Close
-    
-    
-        local Enabled = Instance.new("TextButton")
-        Enabled.Name = "Enabled"
-        Enabled.Parent = Button
-        Enabled.BackgroundColor3 = Color3.fromRGB(255, 189, 46)
-        Enabled.Size = UDim2.new(0, 16, 0, 16)
-        Enabled.AutoButtonColor = false
-        Enabled.Font = Enum.Font.SourceSans
-        Enabled.Text = ""
-        Enabled.TextColor3 = Color3.fromRGB(255, 50, 50)
-        Enabled.TextSize = 14
-        Enabled.MouseButton1Click:Connect(function()
-            game:GetService("CoreGui").Syaoal.Enabled = false
-        end)
-    
-        local uc_19 = Instance.new("UICorner")
-        uc_19.CornerRadius = UDim.new(1, 0)
-        uc_19.Parent = Enabled
-    
-    
-        local resize = Instance.new("TextButton")
-        resize.Name = "resize"
-        resize.Parent = Button
-        resize.BackgroundColor3 = Color3.fromRGB(39, 200, 63)
-        resize.Size = UDim2.new(0, 16, 0, 16)
-        resize.AutoButtonColor = false
-        resize.Font = Enum.Font.SourceSans
-        resize.Text = ""
-        resize.TextColor3 = Color3.fromRGB(255, 50, 50)
-        resize.TextSize = 14
-    
-        local uc_20 = Instance.new("UICorner")
-        uc_20.CornerRadius = UDim.new(1, 0)
-        uc_20.Parent = resize    
-
     --// Drag - not by me
-    main.MouseEnter:Connect(function()
-        local Input = main.InputBegan:connect(function(Key)
+    Main.MouseEnter:Connect(function()
+        local Input = Main.InputBegan:connect(function(Key)
             if Key.UserInputType == Enum.UserInputType.MouseButton1 then
-                local ObjectPosition = Vector2.new(Mouse.X - main.AbsolutePosition.X, Mouse.Y - main.AbsolutePosition.Y)
+                local ObjectPosition = Vector2.new(Mouse.X - Main.AbsolutePosition.X, Mouse.Y - Main.AbsolutePosition.Y)
                 while RunService.RenderStepped:wait() and UserInputService:IsMouseButtonPressed(Enum.UserInputType.MouseButton1) do
-                    local FrameX, FrameY = math.clamp(Mouse.X - ObjectPosition.X, 0, Syaoul.AbsoluteSize.X - main.AbsoluteSize.X), math.clamp(Mouse.Y - ObjectPosition.Y, 0, Syaoul.AbsoluteSize.Y - main.AbsoluteSize.Y)
-                    game:GetService('TweenService'):Create(main, TweenInfo.new(0.1), {Position = UDim2.fromOffset(FrameX + (main.Size.X.Offset * main.AnchorPoint.X), FrameY + (main.Size.Y.Offset * main.AnchorPoint.Y))}):Play()
-                    game:GetService('TweenService'):Create(shadow, TweenInfo.new(0.1), {Position = UDim2.fromOffset(FrameX + (main.Size.X.Offset * main.AnchorPoint.X), FrameY + (main.Size.Y.Offset * main.AnchorPoint.Y))}):Play()
+                    local FrameX, FrameY = math.clamp(Mouse.X - ObjectPosition.X, 0, Syaoul.AbsoluteSize.X - Main.AbsoluteSize.X), math.clamp(Mouse.Y - ObjectPosition.Y, 0, Syaoul.AbsoluteSize.Y - Main.AbsoluteSize.Y)
+                    game:GetService('TweenService'):Create(Main, TweenInfo.new(0.1), {Position = UDim2.fromOffset(FrameX + (Main.Size.X.Offset * Main.AnchorPoint.X), FrameY + (Main.Size.Y.Offset * Main.AnchorPoint.Y))}):Play()
+                    game:GetService('TweenService'):Create(Shadow, TweenInfo.new(0.1), {Position = UDim2.fromOffset(FrameX + (Main.Size.X.Offset * Main.AnchorPoint.X), FrameY + (Main.Size.Y.Offset * Main.AnchorPoint.Y))}):Play()
                 end
             end
         end)
     end)
 
     --// Make the first tab visible
-    game.CoreGui['Syaoul'].main.tabContainer.ChildAdded:Connect(function()
-        game.CoreGui['Syaoul'].main:FindFirstChild('container').Visible = true
+    game.CoreGui['Syaoul'].Main.TabContainer.ChildAdded:Connect(function()
+        game.CoreGui['Syaoul'].Main:FindFirstChild('Container').Visible = true
         pcall(function()
-            repeat wait() until game.CoreGui['Syaoul'].main:FindFirstChild('tabContainer'):FindFirstChildWhichIsA('TextButton')
+            repeat wait() until game.CoreGui['Syaoul'].Main:FindFirstChild('TabContainer'):FindFirstChildWhichIsA('TextButton')
         end)
-        game:GetService('TweenService'):Create(game.CoreGui['Syaoul'].main:FindFirstChild('tabContainer'):FindFirstChildWhichIsA('TextButton'), TweenInfo.new(0.3), {TextTransparency = 0}):Play()
+        game:GetService('TweenService'):Create(game.CoreGui['Syaoul'].Main:FindFirstChild('TabContainer'):FindFirstChildWhichIsA('TextButton'), TweenInfo.new(0.3), {TextTransparency = 0}):Play()
     end)
 
     spawn(function()
