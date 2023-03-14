@@ -586,6 +586,13 @@ function Library:Create(table)
         end)
     end)
 
+--// FF
+AddConnection(UserInputService.InputBegan, function(Input)
+    if Input.KeyCode == Enum.KeyCode.RightShift and UIHidden then
+        game:GetService("CoreGui").Syaoul.Enabled = true
+    end
+end)
+
     --// Make the first tab visible
     game.CoreGui['Syaoul'].main.tabContainer.ChildAdded:Connect(function()
         game.CoreGui['Syaoul'].main:FindFirstChild('container').Visible = true
