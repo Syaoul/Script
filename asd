@@ -572,6 +572,20 @@ function Library:Create(table)
         uc_20.CornerRadius = UDim.new(1, 0)
         uc_20.Parent = resize    
 
+    --// Drag - not by me
+    main.MouseEnter:Connect(function()
+        local Input = main.InputBegan:connect(function(Key)
+            if Key.UserInputType == Enum.UserInputType.MouseButton1 then
+                local ObjectPosition = Vector2.new(Mouse.X - main.AbsolutePosition.X, Mouse.Y - main.AbsolutePosition.Y)
+                while RunService.RenderStepped:wait() and UserInputService:IsMouseButtonPressed(Enum.UserInputType.MouseButton1) do
+                    local FrameX, FrameY = math.clamp(Mouse.X - ObjectPosition.X, 0, Syaoul.AbsoluteSize.X - main.AbsoluteSize.X), math.clamp(Mouse.Y - ObjectPosition.Y, 0, Syaoul.AbsoluteSize.Y - main.AbsoluteSize.Y)
+                    game:GetService('TweenService'):Create(main, TweenInfo.new(0.1), {Position = UDim2.fromOffset(FrameX + (main.Size.X.Offset * main.AnchorPoint.X), FrameY + (main.Size.Y.Offset * main.AnchorPoint.Y))}):Play()
+                    game:GetService('TweenService'):Create(shadow, TweenInfo.new(0.1), {Position = UDim2.fromOffset(FrameX + (main.Size.X.Offset * main.AnchorPoint.X), FrameY + (main.Size.Y.Offset * main.AnchorPoint.Y))}):Play()
+                end
+            end
+        end)
+    end)
+
     spawn(function()
         if table.StartupSound.Toggle and table.StartupSound.SoundID ~= nil then
             local sound = Instance.new('Sound', game.CoreGui)
