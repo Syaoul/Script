@@ -548,6 +548,9 @@ function Library:Create(table)
         Enabled.Text = ""
         Enabled.TextColor3 = Color3.fromRGB(255, 50, 50)
         Enabled.TextSize = 14
+        Enabled.MouseButton1Click:Connect(function()
+            game:GetService("CoreGui").Syaoul.Enabled = false
+        end)
     
         local uc_19 = Instance.new("UICorner")
         uc_19.CornerRadius = UDim.new(1, 0)
@@ -581,15 +584,6 @@ function Library:Create(table)
                 end
             end
         end)
-    end)
-
-    --// Make the first tab visible
-    game.CoreGui['Syaoul'].main.tabContainer.ChildAdded:Connect(function()
-        game.CoreGui['Syaoul'].main:FindFirstChild('container').Visible = true
-        pcall(function()
-            repeat wait() until game.CoreGui['Syaoul'].main:FindFirstChild('tabContainer'):FindFirstChildWhichIsA('TextButton')
-        end)
-        game:GetService('TweenService'):Create(game.CoreGui['Syaoul'].main:FindFirstChild('tabContainer'):FindFirstChildWhichIsA('TextButton'), TweenInfo.new(0.3), {TextTransparency = 0}):Play()
     end)
 
     spawn(function()
