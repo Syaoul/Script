@@ -549,7 +549,7 @@ function Library:Create(table)
         Enabled.TextColor3 = Color3.fromRGB(255, 50, 50)
         Enabled.TextSize = 14
         Enabled.MouseButton1Click:Connect(function()
-            game:GetService("CoreGui").Syaoul.Enabled = false
+            game:GetService("CoreGui").Syaoal.Enabled = false
         end)
     
         local uc_19 = Instance.new("UICorner")
