@@ -567,7 +567,6 @@ function Library:Create(table)
     local uc_20 = Instance.new("UICorner")
     uc_20.CornerRadius = UDim.new(1, 0)
     uc_20.Parent = Mini
-end
 
         return ElementHandler
     end
